@@ -4,68 +4,83 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Hylly — Политика конфиденциальности / Privacy Policy</title>
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.json">
 <style>
   body { margin: 0; font-family: -apple-system, "Segoe UI", Roboto, sans-serif; background: #faf6f0; color: #1c2340; line-height: 1.6; }
   main { max-width: 720px; margin: 0 auto; padding: 48px 20px; }
   h1 { font-family: Georgia, serif; }
   h2 { margin-top: 2em; }
-  hr { border: none; border-top: 1px solid #ddd; margin: 48px 0; }
   a { color: #4b3ff2; }
   .updated { color: #888; font-size: 0.9rem; }
+  .lang-toggle { display: flex; justify-content: flex-end; gap: 6px; margin-bottom: 16px; }
+  .lang-toggle button { border: 1px solid #ddd; background: #fff; border-radius: 999px; padding: 4px 14px; font-size: 0.85rem; cursor: pointer; color: #1c2340; }
+  .lang-toggle button[aria-pressed="true"] { background: #4b3ff2; color: #fff; border-color: #4b3ff2; }
 </style>
 </head>
 <body>
 <main>
-  <p><a href="index.html">← Hylly</a></p>
-  <h1>Политика конфиденциальности</h1>
-  <p class="updated">Обновлено: 3 июля 2026</p>
+  <div class="lang-toggle" role="group" aria-label="Language / Язык">
+    <button type="button" data-set-lang="ru">RU</button>
+    <button type="button" data-set-lang="en">EN</button>
+  </div>
 
-  <h2>Кратко</h2>
-  <p>Hylly не собирает, не передаёт и не продаёт ваши данные. У приложения нет аккаунтов, аналитики и облачной синхронизации.</p>
+  <div data-lang="ru">
+    <p><a href="index.html">← Hylly</a></p>
+    <h1>Политика конфиденциальности</h1>
+    <p class="updated">Обновлено: 4 июля 2026</p>
 
-  <h2>Какие данные обрабатываются</h2>
-  <ul>
-    <li>Сохранённые вами статьи, ссылки, PDF, цитаты, коллекции и метки хранятся <strong>только локально</strong> на вашем устройстве.</li>
-    <li>Настройки приложения (тема, размер текста, язык) хранятся локально.</li>
-  </ul>
+    <h2>Кратко</h2>
+    <p>Hylly не собирает, не передаёт и не продаёт ваши данные. У приложения нет аккаунтов, аналитики и облачной синхронизации.</p>
 
-  <h2>Сетевые запросы</h2>
-  <p>Приложение обращается в интернет только для загрузки страниц и изображений по ссылкам, которые вы сами сохраняете. Запросы идут напрямую к сайту-источнику; никакие промежуточные серверы Hylly не используются — их просто нет.</p>
+    <h2>Какие данные обрабатываются</h2>
+    <ul>
+      <li>Сохранённые вами статьи, ссылки, PDF, цитаты, коллекции и метки хранятся <strong>только локально</strong> на вашем устройстве.</li>
+      <li>Настройки приложения (тема, размер текста, язык) хранятся локально.</li>
+    </ul>
 
-  <h2>Резервные копии</h2>
-  <p>Экспорт данных (ZIP-архив) создаётся по вашему запросу и сохраняется туда, куда вы укажете. Передача архива на другое устройство — полностью под вашим контролем.</p>
+    <h2>Сетевые запросы</h2>
+    <p>Приложение обращается в интернет только для загрузки страниц и изображений по ссылкам, которые вы сами сохраняете. Запросы идут напрямую к сайту-источнику; никакие промежуточные серверы Hylly не используются — их просто нет.</p>
 
-  <h2>Платная подписка</h2>
-  <p>Если вы оформляете подписку Hylly Plus, платёж обрабатывается Google Play. Hylly не получает доступа к вашим платёжным данным.</p>
+    <h2>Резервные копии</h2>
+    <p>Экспорт данных (ZIP-архив) создаётся по вашему запросу и сохраняется туда, куда вы укажете. Передача архива на другое устройство — полностью под вашим контролем.</p>
 
-  <h2>Контакты</h2>
-  <p>Вопросы: <a href="mailto:burteloffluther@gmail.com">burteloffluther@gmail.com</a></p>
+    <h2>Платная функция Hylly Plus</h2>
+    <p>Если вы покупаете Hylly Plus (разовая покупка, не подписка), платёж обрабатывается Google Play. Hylly не получает доступа к вашим платёжным данным.</p>
 
-  <hr>
+    <h2>Контакты</h2>
+    <p>Вопросы: <a href="mailto:burteloffluther@gmail.com">burteloffluther@gmail.com</a></p>
+  </div>
 
-  <h1>Privacy Policy</h1>
-  <p class="updated">Last updated: July 3, 2026</p>
+  <div data-lang="en">
+    <p><a href="index.html">← Hylly</a></p>
+    <h1>Privacy Policy</h1>
+    <p class="updated">Last updated: July 4, 2026</p>
 
-  <h2>In short</h2>
-  <p>Hylly does not collect, transmit, or sell your data. The app has no accounts, no analytics, and no cloud sync.</p>
+    <h2>In short</h2>
+    <p>Hylly does not collect, transmit, or sell your data. The app has no accounts, no analytics, and no cloud sync.</p>
 
-  <h2>What data is processed</h2>
-  <ul>
-    <li>Articles, links, PDFs, highlights, collections, and tags you save are stored <strong>locally only</strong> on your device.</li>
-    <li>App settings (theme, text size, language) are stored locally.</li>
-  </ul>
+    <h2>What data is processed</h2>
+    <ul>
+      <li>Articles, links, PDFs, highlights, collections, and tags you save are stored <strong>locally only</strong> on your device.</li>
+      <li>App settings (theme, text size, language) are stored locally.</li>
+    </ul>
 
-  <h2>Network requests</h2>
-  <p>The app accesses the internet only to download pages and images from links you choose to save. Requests go directly to the source website; no intermediate Hylly servers are involved — there are none.</p>
+    <h2>Network requests</h2>
+    <p>The app accesses the internet only to download pages and images from links you choose to save. Requests go directly to the source website; no intermediate Hylly servers are involved — there are none.</p>
 
-  <h2>Backups</h2>
-  <p>Data export (ZIP archive) is created at your request and saved where you choose. Transferring the archive to another device is fully under your control.</p>
+    <h2>Backups</h2>
+    <p>Data export (ZIP archive) is created at your request and saved where you choose. Transferring the archive to another device is fully under your control.</p>
 
-  <h2>Paid subscription</h2>
-  <p>If you subscribe to Hylly Plus, the payment is processed by Google Play. Hylly never receives access to your payment details.</p>
+    <h2>Hylly Plus purchase</h2>
+    <p>If you buy Hylly Plus (a one-time purchase, not a subscription), the payment is processed by Google Play. Hylly never receives access to your payment details.</p>
 
-  <h2>Contact</h2>
-  <p>Questions: <a href="mailto:burteloffluther@gmail.com">burteloffluther@gmail.com</a></p>
+    <h2>Contact</h2>
+    <p>Questions: <a href="mailto:burteloffluther@gmail.com">burteloffluther@gmail.com</a></p>
+  </div>
 </main>
+<script src="lang.js"></script>
 </body>
 </html>

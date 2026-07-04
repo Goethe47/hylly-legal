@@ -4,6 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Hylly — локальная библиотека материалов</title>
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.json">
 <style>
   :root { --primary: #4b3ff2; --bg: #faf6f0; --text: #1c2340; }
   * { box-sizing: border-box; }
@@ -15,28 +19,60 @@
   a { color: var(--primary); }
   ul { padding-left: 1.2em; }
   footer { color: #888; font-size: 0.9rem; margin-top: 40px; }
+  .lang-toggle { display: flex; justify-content: flex-end; gap: 6px; margin-bottom: 8px; }
+  .lang-toggle button { border: 1px solid #ddd; background: #fff; border-radius: 999px; padding: 4px 14px; font-size: 0.85rem; cursor: pointer; color: var(--text); }
+  .lang-toggle button[aria-pressed="true"] { background: var(--primary); color: #fff; border-color: var(--primary); }
 </style>
 </head>
 <body>
 <main>
-  <h1>📚 Hylly</h1>
-  <p class="tagline">Локальная библиотека материалов: сохраняйте статьи, ссылки и PDF для чтения офлайн. Без аккаунта и облака — всё хранится на вашем устройстве.</p>
-  <div class="card">
-    <h2>Как это работает</h2>
-    <ul>
-      <li>Поделитесь ссылкой из любого приложения — Hylly сохранит статью для чтения офлайн.</li>
-      <li>Прозрачный процесс сохранения без обхода ограничений сайтов и платного доступа.</li>
-      <li>Коллекции, метки, цитаты и поиск по сохранённым материалам.</li>
-    </ul>
+  <div class="lang-toggle" role="group" aria-label="Language / Язык">
+    <button type="button" data-set-lang="ru">RU</button>
+    <button type="button" data-set-lang="en">EN</button>
   </div>
-  <div class="card">
-    <h2>Документы</h2>
-    <ul>
-      <li><a href="privacy.html">Политика конфиденциальности / Privacy Policy</a></li>
-      <li><a href="terms.html">Условия использования / Terms of Use</a></li>
-    </ul>
+
+  <div data-lang="ru">
+    <h1>📚 Hylly</h1>
+    <p class="tagline">Локальная библиотека материалов: сохраняйте статьи, ссылки и PDF для чтения офлайн. Без аккаунта и облака — всё хранится на вашем устройстве.</p>
+    <div class="card">
+      <h2>Как это работает</h2>
+      <ul>
+        <li>Поделитесь ссылкой из любого приложения — Hylly сохранит статью для чтения офлайн.</li>
+        <li>Прозрачный процесс сохранения без обхода ограничений сайтов и платного доступа.</li>
+        <li>Коллекции, метки, цитаты и поиск по сохранённым материалам.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h2>Документы</h2>
+      <ul>
+        <li><a href="privacy.html">Политика конфиденциальности</a></li>
+        <li><a href="terms.html">Условия использования</a></li>
+      </ul>
+    </div>
+    <footer>© 2026 Hylly · <a href="https://github.com/Goethe47/Hylly">GitHub</a></footer>
   </div>
-  <footer>© 2026 Hylly · <a href="https://github.com/Goethe47/Hylly">GitHub</a></footer>
+
+  <div data-lang="en">
+    <h1>📚 Hylly</h1>
+    <p class="tagline">A local library for your reading material: save articles, links and PDFs for offline reading. No account, no cloud — everything stays on your device.</p>
+    <div class="card">
+      <h2>How it works</h2>
+      <ul>
+        <li>Share a link from any app — Hylly saves the article for offline reading.</li>
+        <li>Transparent saving process, no bypassing site restrictions or paywalls.</li>
+        <li>Collections, tags, highlights and search across everything you've saved.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h2>Documents</h2>
+      <ul>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="terms.html">Terms of Use</a></li>
+      </ul>
+    </div>
+    <footer>© 2026 Hylly · <a href="https://github.com/Goethe47/Hylly">GitHub</a></footer>
+  </div>
 </main>
+<script src="lang.js"></script>
 </body>
 </html>
