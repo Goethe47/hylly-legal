@@ -11,22 +11,41 @@
 <style>
   :root {
     --primary: #6C3DFF;
+    --on-primary: #ffffff;
     --bg: #FFFCF8;
+    --surface: #FFFFFF;
     --text: #0D1230;
     --text-secondary: #68637A;
     --border: #ECECF2;
   }
-  body { margin: 0; font-family: -apple-system, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --primary: #B69CFF;
+      --on-primary: #0B0B14;
+      --bg: #0B0B14;
+      --surface: #141321;
+      --text: #FFF9F4;
+      --text-secondary: #C8BEDA;
+      --border: #44385F;
+    }
+  }
+  body {
+    margin: 0; font-family: -apple-system, "Segoe UI", Roboto, sans-serif;
+    background: var(--bg); color: var(--text); line-height: 1.6;
+    transition: background-color 0.25s ease, color 0.25s ease;
+    opacity: 0; animation: hyllyFadeIn 0.4s ease forwards;
+  }
+  @keyframes hyllyFadeIn { to { opacity: 1; } }
   main { max-width: 720px; margin: 0 auto; padding: 48px 20px; }
   .back { display: flex; align-items: center; gap: 8px; text-decoration: none; color: var(--text); font-size: 0.95rem; }
   .back img { width: 22px; height: 22px; border-radius: 6px; }
   h1 { font-family: Georgia, serif; }
   h2 { margin-top: 2em; font-size: 1.1rem; }
-  a { color: var(--primary); }
+  a { color: var(--primary); transition: color 0.25s ease; }
   .updated { color: var(--text-secondary); font-size: 0.9rem; }
   .lang-toggle { display: flex; justify-content: flex-end; gap: 6px; margin-bottom: 16px; }
-  .lang-toggle button { border: 1px solid var(--border); background: #fff; border-radius: 999px; padding: 4px 14px; font-size: 0.85rem; cursor: pointer; color: var(--text); }
-  .lang-toggle button[aria-pressed="true"] { background: var(--primary); color: #fff; border-color: var(--primary); }
+  .lang-toggle button { border: 1px solid var(--border); background: var(--surface); border-radius: 999px; padding: 4px 14px; font-size: 0.85rem; cursor: pointer; color: var(--text); transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease; }
+  .lang-toggle button[aria-pressed="true"] { background: var(--primary); color: var(--on-primary); border-color: var(--primary); }
 </style>
 </head>
 <body>
@@ -47,6 +66,7 @@
     <h2>Ответственное использование</h2>
     <ul>
       <li>Hylly не обходит платный доступ, авторизацию и иные ограничения сайтов. Если источник требует вход — сохранится только ссылка.</li>
+      <li>Для ссылок на видео (например, YouTube) Hylly сохраняет только ссылку и метаданные (название, обложку) — само видео не скачивается и не хранится в приложении.</li>
       <li>Сохранённые материалы предназначены только для личного чтения. Распространение чужого контента остаётся под ответственностью пользователя.</li>
       <li>Права на сохраняемый контент принадлежат его авторам и издателям.</li>
     </ul>
@@ -69,6 +89,7 @@
     <h2>Responsible use</h2>
     <ul>
       <li>Hylly does not bypass paywalls, logins, or other site restrictions. If a source requires signing in, only the link is saved.</li>
+      <li>For video links (e.g. YouTube), Hylly saves only the link and metadata (title, thumbnail) — the video itself is never downloaded or stored in the app.</li>
       <li>Saved materials are intended for personal reading only. Redistribution of third-party content remains the user's responsibility.</li>
       <li>Rights to saved content belong to its authors and publishers.</li>
     </ul>

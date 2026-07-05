@@ -13,31 +13,51 @@
      чтобы сайт и приложение читались как один продукт. */
   :root {
     --primary: #6C3DFF;
+    --on-primary: #ffffff;
     --bg: #FFFCF8;
     --surface: #FFFFFF;
     --text: #0D1230;
     --text-secondary: #68637A;
     --border: #ECECF2;
     --accent: #FF8A19;
+    --card-shadow: 0 2px 14px rgba(13, 18, 48, 0.06);
     --radius-small: 12px;
     --radius-medium: 20px;
     --radius-large: 28px;
   }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --primary: #B69CFF;
+      --on-primary: #0B0B14;
+      --bg: #0B0B14;
+      --surface: #141321;
+      --text: #FFF9F4;
+      --text-secondary: #C8BEDA;
+      --border: #44385F;
+      --card-shadow: 0 2px 14px rgba(0, 0, 0, 0.4);
+    }
+  }
   * { box-sizing: border-box; }
-  body { margin: 0; font-family: -apple-system, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+  body {
+    margin: 0; font-family: -apple-system, "Segoe UI", Roboto, sans-serif;
+    background: var(--bg); color: var(--text); line-height: 1.6;
+    transition: background-color 0.25s ease, color 0.25s ease;
+    opacity: 0; animation: hyllyFadeIn 0.4s ease forwards;
+  }
+  @keyframes hyllyFadeIn { to { opacity: 1; } }
   main { max-width: 720px; margin: 0 auto; padding: 48px 20px; }
   .brand { display: flex; align-items: center; gap: 12px; margin-bottom: 4px; }
   .brand img { width: 40px; height: 40px; border-radius: var(--radius-small); }
   h1 { font-family: Georgia, serif; font-size: 2.2rem; margin: 0; }
   .tagline { color: var(--text-secondary); font-size: 1.1rem; }
-  .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-medium); padding: 24px; margin: 20px 0; box-shadow: 0 2px 14px rgba(13, 18, 48, 0.06); }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-medium); padding: 24px; margin: 20px 0; box-shadow: var(--card-shadow); transition: background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease; }
   .card h2 { margin-top: 0; font-size: 1.15rem; }
-  a { color: var(--primary); }
+  a { color: var(--primary); transition: color 0.25s ease; }
   ul { padding-left: 1.2em; }
   footer { color: var(--text-secondary); font-size: 0.9rem; margin-top: 40px; }
   .lang-toggle { display: flex; justify-content: flex-end; gap: 6px; margin-bottom: 20px; }
-  .lang-toggle button { border: 1px solid var(--border); background: var(--surface); border-radius: 999px; padding: 4px 14px; font-size: 0.85rem; cursor: pointer; color: var(--text); }
-  .lang-toggle button[aria-pressed="true"] { background: var(--primary); color: #fff; border-color: var(--primary); }
+  .lang-toggle button { border: 1px solid var(--border); background: var(--surface); border-radius: 999px; padding: 4px 14px; font-size: 0.85rem; cursor: pointer; color: var(--text); transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease; }
+  .lang-toggle button[aria-pressed="true"] { background: var(--primary); color: var(--on-primary); border-color: var(--primary); }
 </style>
 </head>
 <body>
