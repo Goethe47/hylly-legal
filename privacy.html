@@ -19,7 +19,7 @@
     --border: #ECECF2;
   }
   @media (prefers-color-scheme: dark) {
-    :root {
+    :root:not([data-theme="light"]) {
       --primary: #B69CFF;
       --on-primary: #0B0B14;
       --bg: #0B0B14;
@@ -28,6 +28,15 @@
       --text-secondary: #C8BEDA;
       --border: #44385F;
     }
+  }
+  :root[data-theme="dark"] {
+    --primary: #B69CFF;
+    --on-primary: #0B0B14;
+    --bg: #0B0B14;
+    --surface: #141321;
+    --text: #FFF9F4;
+    --text-secondary: #C8BEDA;
+    --border: #44385F;
   }
   body {
     margin: 0; font-family: -apple-system, "Segoe UI", Roboto, sans-serif;
@@ -43,16 +52,23 @@
   h2 { margin-top: 2em; font-size: 1.1rem; }
   a { color: var(--primary); transition: color 0.25s ease; }
   .updated { color: var(--text-secondary); font-size: 0.9rem; }
-  .lang-toggle { display: flex; justify-content: flex-end; gap: 6px; margin-bottom: 16px; }
-  .lang-toggle button { border: 1px solid var(--border); background: var(--surface); border-radius: 999px; padding: 4px 14px; font-size: 0.85rem; cursor: pointer; color: var(--text); transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease; }
-  .lang-toggle button[aria-pressed="true"] { background: var(--primary); color: var(--on-primary); border-color: var(--primary); }
+  .controls-row { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-bottom: 16px; }
+  .theme-toggle, .lang-toggle { display: flex; gap: 6px; }
+  .theme-toggle button, .lang-toggle button { border: 1px solid var(--border); background: var(--surface); border-radius: 999px; padding: 4px 14px; font-size: 0.85rem; cursor: pointer; color: var(--text); transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease; }
+  .theme-toggle button[aria-pressed="true"], .lang-toggle button[aria-pressed="true"] { background: var(--primary); color: var(--on-primary); border-color: var(--primary); }
 </style>
 </head>
 <body>
 <main>
-  <div class="lang-toggle" role="group" aria-label="Language / Язык">
-    <button type="button" data-set-lang="ru">RU</button>
-    <button type="button" data-set-lang="en">EN</button>
+  <div class="controls-row">
+    <div class="theme-toggle" role="group" aria-label="Theme">
+      <button type="button" data-set-theme="light" aria-label="Light theme">☀</button>
+      <button type="button" data-set-theme="dark" aria-label="Dark theme">☾</button>
+    </div>
+    <div class="lang-toggle" role="group" aria-label="Language / Язык">
+      <button type="button" data-set-lang="ru">RU</button>
+      <button type="button" data-set-lang="en">EN</button>
+    </div>
   </div>
 
   <div data-lang="ru">
@@ -109,6 +125,6 @@
     <p>Questions: <a href="mailto:burteloffluther@gmail.com">burteloffluther@gmail.com</a></p>
   </div>
 </main>
-<script src="lang.js"></script>
+<script src="lang.js?v=2"></script>
 </body>
 </html>

@@ -41,4 +41,62 @@
   }
 
   document.addEventListener('DOMContentLoaded', initLang);
+
+  // Тема по умолчанию следует системной (prefers-color-scheme через CSS).
+  // Кнопки дают явный ручной выбор поверх системного, если человек хочет
+  // посмотреть/оставить конкретную тему независимо от настроек ОС.
+  function systemTheme() {
+    return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
+
+  function updateThemeButtons(effective) {
+    document.querySelectorAll('.theme-toggle button').forEach(function (btn) {
+      btn.setAttribute('aria-pressed', btn.dataset.setTheme === effective ? 'true' : 'false');
+    });
+  }
+
+  function applyTheme(explicit) {
+    if (explicit === 'light' || explicit === 'dark') {
+      document.documentElement.setAttribute('data-theme', explicit);
+    } else {
+      document.documentElement.removeAttribute('data-theme');
+    }
+    updateThemeButtons(explicit === 'light' || explicit === 'dark' ? explicit : systemTheme());
+  }
+
+  function initTheme() {
+    var stored = null;
+    try {
+      stored = localStorage.getItem('hylly-theme');
+    } catch (e) {
+      /* ignore */
+    }
+    applyTheme(stored);
+
+    document.querySelectorAll('.theme-toggle button').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var value = btn.dataset.setTheme;
+        try {
+          localStorage.setItem('hylly-theme', value);
+        } catch (e) {
+          /* localStorage unavailable — choice just won't persist */
+        }
+        applyTheme(value);
+      });
+    });
+
+    if (window.matchMedia) {
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function () {
+        var current = null;
+        try {
+          current = localStorage.getItem('hylly-theme');
+        } catch (e) {
+          /* ignore */
+        }
+        if (current !== 'light' && current !== 'dark') updateThemeButtons(systemTheme());
+      });
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', initTheme);
 })();
