@@ -16,6 +16,11 @@
   }
 
   function initLang() {
+    // Ссылки из приложения передают ?lang=ru/en, чтобы открывался документ на
+    // том же языке, что выбран в Hylly, а не на языке браузера/устройства.
+    var params = new URLSearchParams(window.location.search);
+    var fromUrl = params.get('lang');
+
     var stored = null;
     try {
       stored = localStorage.getItem('hylly-lang');
@@ -23,7 +28,10 @@
       /* ignore */
     }
     var browserLang = (navigator.language || '').toLowerCase().indexOf('ru') === 0 ? 'ru' : 'en';
-    applyLang(stored === 'en' || stored === 'ru' ? stored : browserLang);
+    var initial = fromUrl === 'en' || fromUrl === 'ru'
+      ? fromUrl
+      : (stored === 'en' || stored === 'ru' ? stored : browserLang);
+    applyLang(initial);
 
     document.querySelectorAll('.lang-toggle button').forEach(function (btn) {
       btn.addEventListener('click', function () {
