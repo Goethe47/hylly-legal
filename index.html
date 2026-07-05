@@ -9,18 +9,34 @@
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 <link rel="manifest" href="manifest.json">
 <style>
-  :root { --primary: #4b3ff2; --bg: #faf6f0; --text: #1c2340; }
+  /* Токены взяты из app/src/main/java/.../ui/theme/Color.kt и Theme.kt,
+     чтобы сайт и приложение читались как один продукт. */
+  :root {
+    --primary: #6C3DFF;
+    --bg: #FFFCF8;
+    --surface: #FFFFFF;
+    --text: #0D1230;
+    --text-secondary: #68637A;
+    --border: #ECECF2;
+    --accent: #FF8A19;
+    --radius-small: 12px;
+    --radius-medium: 20px;
+    --radius-large: 28px;
+  }
   * { box-sizing: border-box; }
   body { margin: 0; font-family: -apple-system, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
   main { max-width: 720px; margin: 0 auto; padding: 48px 20px; }
-  h1 { font-family: Georgia, serif; font-size: 2.4rem; margin-bottom: 0.2em; }
-  .tagline { color: #555; font-size: 1.1rem; }
-  .card { background: #fff; border-radius: 18px; padding: 24px; margin: 20px 0; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+  .brand { display: flex; align-items: center; gap: 12px; margin-bottom: 4px; }
+  .brand img { width: 40px; height: 40px; border-radius: var(--radius-small); }
+  h1 { font-family: Georgia, serif; font-size: 2.2rem; margin: 0; }
+  .tagline { color: var(--text-secondary); font-size: 1.1rem; }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-medium); padding: 24px; margin: 20px 0; box-shadow: 0 2px 14px rgba(13, 18, 48, 0.06); }
+  .card h2 { margin-top: 0; font-size: 1.15rem; }
   a { color: var(--primary); }
   ul { padding-left: 1.2em; }
-  footer { color: #888; font-size: 0.9rem; margin-top: 40px; }
-  .lang-toggle { display: flex; justify-content: flex-end; gap: 6px; margin-bottom: 8px; }
-  .lang-toggle button { border: 1px solid #ddd; background: #fff; border-radius: 999px; padding: 4px 14px; font-size: 0.85rem; cursor: pointer; color: var(--text); }
+  footer { color: var(--text-secondary); font-size: 0.9rem; margin-top: 40px; }
+  .lang-toggle { display: flex; justify-content: flex-end; gap: 6px; margin-bottom: 20px; }
+  .lang-toggle button { border: 1px solid var(--border); background: var(--surface); border-radius: 999px; padding: 4px 14px; font-size: 0.85rem; cursor: pointer; color: var(--text); }
   .lang-toggle button[aria-pressed="true"] { background: var(--primary); color: #fff; border-color: var(--primary); }
 </style>
 </head>
@@ -32,7 +48,7 @@
   </div>
 
   <div data-lang="ru">
-    <h1>📚 Hylly</h1>
+    <div class="brand"><img src="logo-mark.png" alt=""><h1>Hylly</h1></div>
     <p class="tagline">Локальная библиотека материалов: сохраняйте статьи, ссылки и PDF для чтения офлайн. Без аккаунта и облака — всё хранится на вашем устройстве.</p>
     <div class="card">
       <h2>Как это работает</h2>
@@ -53,7 +69,7 @@
   </div>
 
   <div data-lang="en">
-    <h1>📚 Hylly</h1>
+    <div class="brand"><img src="logo-mark.png" alt=""><h1>Hylly</h1></div>
     <p class="tagline">A local library for your reading material: save articles, links and PDFs for offline reading. No account, no cloud — everything stays on your device.</p>
     <div class="card">
       <h2>How it works</h2>

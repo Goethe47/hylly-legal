@@ -9,15 +9,24 @@
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 <link rel="manifest" href="manifest.json">
 <style>
-  body { margin: 0; font-family: -apple-system, "Segoe UI", Roboto, sans-serif; background: #faf6f0; color: #1c2340; line-height: 1.6; }
+  :root {
+    --primary: #6C3DFF;
+    --bg: #FFFCF8;
+    --text: #0D1230;
+    --text-secondary: #68637A;
+    --border: #ECECF2;
+  }
+  body { margin: 0; font-family: -apple-system, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
   main { max-width: 720px; margin: 0 auto; padding: 48px 20px; }
+  .back { display: flex; align-items: center; gap: 8px; text-decoration: none; color: var(--text); font-size: 0.95rem; }
+  .back img { width: 22px; height: 22px; border-radius: 6px; }
   h1 { font-family: Georgia, serif; }
-  h2 { margin-top: 2em; }
-  a { color: #4b3ff2; }
-  .updated { color: #888; font-size: 0.9rem; }
+  h2 { margin-top: 2em; font-size: 1.1rem; }
+  a { color: var(--primary); }
+  .updated { color: var(--text-secondary); font-size: 0.9rem; }
   .lang-toggle { display: flex; justify-content: flex-end; gap: 6px; margin-bottom: 16px; }
-  .lang-toggle button { border: 1px solid #ddd; background: #fff; border-radius: 999px; padding: 4px 14px; font-size: 0.85rem; cursor: pointer; color: #1c2340; }
-  .lang-toggle button[aria-pressed="true"] { background: #4b3ff2; color: #fff; border-color: #4b3ff2; }
+  .lang-toggle button { border: 1px solid var(--border); background: #fff; border-radius: 999px; padding: 4px 14px; font-size: 0.85rem; cursor: pointer; color: var(--text); }
+  .lang-toggle button[aria-pressed="true"] { background: var(--primary); color: #fff; border-color: var(--primary); }
 </style>
 </head>
 <body>
@@ -28,7 +37,7 @@
   </div>
 
   <div data-lang="ru">
-    <p><a href="index.html">← Hylly</a></p>
+    <p><a class="back" href="index.html"><img src="logo-mark.png" alt="">← Hylly</a></p>
     <h1>Условия использования</h1>
     <p class="updated">Обновлено: 4 июля 2026</p>
 
@@ -50,7 +59,7 @@
   </div>
 
   <div data-lang="en">
-    <p><a href="index.html">← Hylly</a></p>
+    <p><a class="back" href="index.html"><img src="logo-mark.png" alt="">← Hylly</a></p>
     <h1>Terms of Use</h1>
     <p class="updated">Last updated: July 4, 2026</p>
 
