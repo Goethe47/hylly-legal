@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -56,6 +56,9 @@
   .theme-toggle, .lang-toggle { display: flex; gap: 6px; }
   .theme-toggle button, .lang-toggle button { border: 1px solid var(--border); background: var(--surface); border-radius: 999px; padding: 4px 14px; font-size: 0.85rem; cursor: pointer; color: var(--text); transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease; }
   .theme-toggle button[aria-pressed="true"], .lang-toggle button[aria-pressed="true"] { background: var(--primary); color: var(--on-primary); border-color: var(--primary); }
+  /* Английский — язык по умолчанию до срабатывания lang.js, чтобы не было
+     вспышки русского текста при прямом заходе на сайт. */
+  [data-lang="ru"] { display: none; }
 </style>
 </head>
 <body>
@@ -117,6 +120,6 @@
     <p>The app is provided "as is". We cannot guarantee correct content extraction from every website: page markup changes constantly.</p>
   </div>
 </main>
-<script src="lang.js?v=2"></script>
+<script src="lang.js?v=3"></script>
 </body>
 </html>

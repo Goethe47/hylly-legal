@@ -17,7 +17,9 @@
 
   function initLang() {
     // Ссылки из приложения передают ?lang=ru/en, чтобы открывался документ на
-    // том же языке, что выбран в Hylly, а не на языке браузера/устройства.
+    // том же языке, что выбран в Hylly. Для прямых заходов на сайт (Google
+    // Play review, случайные посетители) язык браузера больше не угадываем —
+    // стандартный язык страницы английский, пока явно не выбрано другое.
     var params = new URLSearchParams(window.location.search);
     var fromUrl = params.get('lang');
 
@@ -27,10 +29,9 @@
     } catch (e) {
       /* ignore */
     }
-    var browserLang = (navigator.language || '').toLowerCase().indexOf('ru') === 0 ? 'ru' : 'en';
     var initial = fromUrl === 'en' || fromUrl === 'ru'
       ? fromUrl
-      : (stored === 'en' || stored === 'ru' ? stored : browserLang);
+      : (stored === 'en' || stored === 'ru' ? stored : 'en');
     applyLang(initial);
 
     document.querySelectorAll('.lang-toggle button').forEach(function (btn) {
