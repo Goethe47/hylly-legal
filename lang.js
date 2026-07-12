@@ -2,7 +2,10 @@
   function applyLang(lang) {
     document.documentElement.setAttribute('lang', lang);
     document.querySelectorAll('[data-lang]').forEach(function (el) {
-      el.style.display = el.getAttribute('data-lang') === lang ? '' : 'none';
+      // 'block', not '' — an empty value just clears the inline style, which
+      // would leave the page's default `[data-lang="ru"] { display: none; }`
+      // CSS rule in charge and the block stuck hidden even when selected.
+      el.style.display = el.getAttribute('data-lang') === lang ? 'block' : 'none';
     });
     document.querySelectorAll('.lang-toggle button').forEach(function (btn) {
       var active = btn.dataset.setLang === lang;
